@@ -1,4 +1,5 @@
-[![CircleCI](https://circleci.com/gh/gbonfant/otto.svg?style=svg)](https://circleci.com/gh/gbonfant/otto)
+[![CircleCI](https://circleci.com/gh/gbonfant/otto.svg?style=shield)](https://circleci.com/gh/gbonfant/otto)
+[![Code Climate](https://codeclimate.com/github/gbonfant/otto/badges/gpa.svg)](https://codeclimate.com/github/gbonfant/otto)
 
 # README
 

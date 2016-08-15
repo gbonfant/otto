@@ -10,16 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803170905) do
+ActiveRecord::Schema.define(version: 20160815203256) do
 
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "list_entries", force: :cascade do |t|
+    t.integer  "list_id"
+    t.integer  "restaurant_id"
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["list_id"], name: "index_list_entries_on_list_id", using: :btree
+    t.index ["restaurant_id"], name: "index_list_entries_on_restaurant_id", using: :btree
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.text    "description",   null: false
-    t.integer "restaurant_id"
-    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+  create_table "lists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id", using: :btree
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name"
+    t.point    "geo"
+    t.string   "photo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

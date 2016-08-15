@@ -16,3 +16,6 @@
 
 # Ignore tags
 /tags
+
+# Ignore .env
+.env
